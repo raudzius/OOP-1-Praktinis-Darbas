@@ -1,0 +1,70 @@
+Private
+
+private nariai pasiekiami tik pačios klasės viduje:
+  private:
+    string brand;
+    int year;
+    double price;
+
+Negalima pasiekti main funkcijoje tokiu būdu:
+car2.price = 500;
+
+Kainą keičiame per public funkciją:
+car2.changePrice(500);
+
+Taip ribojam duomenų keitimą.
+-----------------------------------------------------
+Public
+
+Šioje dalyje esančius metodus galima pasiekti iš išorės:
+  public:
+    void changePricea(double newPrice);
+    void showInfoInLT();
+
+main() galima iškviesti:
+car2.showInfoInLT();
+-----------------------------------------------------
+Protected
+
+Panašu į private, tačiau protected narius papildomai gali naudoti iš šios klasės paveldėtos klasės.
+-----------------------------------------------------
+Konstruktorius yra speciali klasės funkcija, kuri automatiškai iškviečiama kuriant objektą.
+
+Numatytasis konstruktorius:
+Car()
+{
+brand = "Nezinoma";
+year = 0;
+// ...
+}
+
+main() grazina objektą su iš anksto klasėje aprašytomis narių reikšmėmis
+Car car1;
+-------------------------------------------------------------------
+Konstruktorius su parametrais
+
+Car(string brand, int year, double price, char fuelType, int mileage)
+
+main grazina objekta su paduotomis nariu reiksmemis
+Car car2("Honda", 1998, 1800.50, 'B', 250000);
+----------------------------------------------
+Kopijavimo konstruktorius
+
+Car(const Car &otherCar)
+
+Sukuria nauja objekta su paduoto egzistuojancio objekto nariu reiksmemis:
+Car car3(car2);
+------------------------------------------------------------------------
+Rezultatu isvedimo funkcija isveda duomenis i konsole:
+main():
+car2.showInfoInLT();
+
+Rezultatas:
+
+Duomenys po pakeitimu:
+Marke: Honda Civic
+Metai: 1998
+Kaina: 1600 EUR
+Kuro tipas: B
+Rida: 255000 km
+Uzvestas: Taip
